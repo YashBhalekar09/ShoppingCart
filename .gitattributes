@@ -1,2 +1,3 @@
+*.html linguist-detectable=false
 /mvnw text eol=lf
 *.cmd text eol=crlf
