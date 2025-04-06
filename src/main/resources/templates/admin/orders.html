@@ -14,12 +14,12 @@
 				<a href="/admin/" class="text-decoration-none fs-5"><i
 					class="fa-solid fa-arrow-left fs-5 mb-3"></i> Back</a>
 				<th:block th:if="${session.succMsg}">
-					<p class="text-success fw-bold text-center">[[${session.succMsg}]]</p>
+					<h5 class="text-success fw-bold text-center">[[${session.succMsg}]]</h5>
 					<th:block th:text="${@commonServiceImpl.removeSessionMessage()}"></th:block>
 				</th:block>
 
 				<th:block th:if="${session.errorMsg}">
-					<p class="text-danger fw-bold text-center">[[${session.errorMsg}]]</p>
+					<h5 class="text-danger fw-bold text-center">[[${session.errorMsg}]]</h5>
 					<th:block th:text="${@commonServiceImpl.removeSessionMessage()}"></th:block>
 				</th:block>
 				<!--  <div class="col-md-4 p-4">
