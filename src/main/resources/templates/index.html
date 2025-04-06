@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thyeleaf.org"
+	th:replace="~{base::layout(~{::section})}">
+<head>
+<meta charset="UTF-8">
+<title>Ecom Store</title>
+
+</head>
+<body>
+	<section>
+		<!-- Slider start -->
+
+
+		<div id="carouselExampleAutoplaying" class="carousel slide"
+			data-bs-ride="carousel">
+			<div class="carousel-inner">
+				<div class="carousel-item active ">
+					<img src="img/p2.png" class="d-block w-100" alt="img1"
+						height="400px">
+				</div>
+				<div class="carousel-item">
+					<img src="img/carousel.png" class="d-block w-100" alt="img1"
+						height="400px">
+				</div>
+				<div class="carousel-item">
+					<img src="img/header.png" class="d-block w-100" alt="img1"
+						height="400px">
+				</div>
+
+				<div class="carousel-item">
+					<img src="img/p1.png" class="d-block w-100" alt="img1"
+						height="400px">
+				</div>
+				<div class="carousel-item">
+					<img src="img/p3.png" class="d-block w-100" alt="img1"
+						height="400px">
+				</div>
+
+			</div>
+			<button class="carousel-control-prev" type="button"
+				data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Previous</span>
+			</button>
+			<button class="carousel-control-next" type="button"
+				data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+				<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Next</span>
+			</button>
+		</div>
+		<!-- Slider end -->
+
+		<!-- Category module start-->
+		<div class="container-fluid">
+			<div class="row">
+				<h2 class="text-center mt-5 mb-3">Category</h2>
+				<div class="col-md-2" th:each="c:${category}">
+					<div class="card shadow  bg-body-dark image-hover-effect "
+						style="width: 13rem;">
+						<div class="card-body text-center">
+							<img th:src="@{'img/category_img/'+${c.imageName}}" width="156px" height="170px"><br><a
+								th:href="@{'/products?category='+${c.name}}"
+								class="text-decoration-none " style="font-size:18px">[[${c.name}]]</a>
+						</div>
+					</div>
+				</div>
+
+				<!--  <div class="col-md-2">
+					<div class="card shadow  bg-body-dark image-hover-effect" style="width: 11rem;">
+						<div class="card-body text-center">
+							<img alt="img" src="img/beuty.png" width="150px" height="170px" />
+							<h6>Beauty</h6>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-2">
+					<div class="card shadow  bg-body-dark image-hover-effect" style="width: 11rem;">
+						<div class="card-body text-center">
+							<img alt="img" src="img/cloth.png" width="140px" height="170px" />
+							<h6>Cloths</h6>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-2">
+					<div class="card shadow  bg-body-dark image-hover-effect" style="width: 11rem;">
+						<div class="card-body text-center">
+							<img alt="img" src="img/laptop.webp" width="140px" height="170px" />
+							<h6>Laptop</h6>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-2">
+					<div class="card  shadow  bg-body-dark image-hover-effect" style="width: 11rem;">
+						<div class="card-body text-center">
+							<img alt="img" src="img/mobile.jpg" width="160px" height="170px" />
+							<h6 class="text-center">Mobile</h6>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-2 ">
+					<div class="card  shadow  bg-body-dark image-hover-effect" style="width: 11rem;">
+						<div class="card-body text-center">
+							<img alt="img" src="img/grocery.png" width="150px" height="170px" />
+							<h6>Grocery</h6>
+						</div>
+					</div>
+				</div>-->
+			</div>
+		</div>
+
+		<!-- Category module end-->
+
+		<!-- Latest product module start-->
+		<div class="container bg-light p-3">
+			<div class="row">
+				<h2 class="text-center mt-5 mb-3">Latest Products</h2>
+
+				<div class="col-md-3 mb-4" th:each="p:${products}">
+					<div class="card shadow bg-body-dark image-hover-effect"
+						style="width: 15rem;">
+						<div class="card-body text-center">
+							<img alt="" th:src="@{'img/product_img/'+${p.image}}" class="mb-2"
+								width="170px"
+								height="170px">
+							<h6 class="text-center ">
+								<a th:href="@{'/product/'+${p.id}}" class="text-decoration-none " style="font-size:17px">[[${p.title}]]</a>
+							</h6>
+						</div>
+					</div>
+				</div>
+
+				<!--  <div class="col-sm-12 col-md-3 ">
+					<div class="card shadow bg-body-dark image-hover-effect" style="width: 15rem;">
+						<div class="card-body text-center">
+							<img alt="img" src="img/product_img/mobile.jpg" width="200px"
+								height="170px" />
+							<h6 class="text-center">Iphone Mobile</h6>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-3 ">
+					<div class="card shadow bg-body-dark image-hover-effect" style="width: 15rem;">
+						<div class="card-body text-center">
+							<img alt="img" src="img/product_img/mobile.jpg" width="200px"
+								height="170px" />
+							<h6 class="text-center">Iphone Mobile</h6>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-3 ">
+					<div class="card shadow bg-body-dark image-hover-effect" style="width: 15rem;">
+						<div class="card-body text-center">
+							<img alt="img" src="img/product_img/mobile.jpg" width="200px"
+								height="170px" />
+							<h6 class="text-center">Iphone Mobile</h6>
+						</div>
+					</div>
+				</div>-->
+			</div>
+		</div>
+
+		<!-- Latest product module end-->
+
+	</section>
+</body>
+</html>

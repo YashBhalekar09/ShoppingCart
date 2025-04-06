@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{base::layout(~{::section})}">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<section>
+		<div class="container-fluid  p-2">
+			<div class="row">
+				<p class="text-center fs-3 mt-2">All Products</p>
+				<hr>
+				<a href="/admin/" class="text-decoration-none fs-5"><i
+					class="fa-solid fa-arrow-left fs-5"></i> Back</a>
+				<th:block th:if="${session.succMsg}">
+					<p class="text-success fw-bold">[[${session.succMsg}]]</p>
+					<th:block th:text="${@commonServiceImpl.removeSessionMessage()}"></th:block>
+				</th:block>
+
+				<th:block th:if="${session.errorMsg}">
+					<p class="text-danger fw-bold">[[${session.errorMsg}]]</p>
+					<th:block th:text="${@commonServiceImpl.removeSessionMessage()}"></th:block>
+				</th:block>
+
+				<th:block th:if="${session.errorMsg}">
+					<p class="text-danger fw-bold text-center">[[${session.errorMsg}]]</p>
+					<th:block th:text="${@commonServiceImpl.removeSessionMessage()}"></th:block>
+				</th:block>
+				<!--  <div class="col-md-4 p-3">
+
+					<form action="/admin/products" method="get">
+						<div class="row">
+							<div class="col">
+								<input type="text" class="form-control border border-info" name="ch">
+							</div>
+							<div class="col">
+								<button class="btn btn-primary col">Search</button>
+							</div>
+						</div>
+					</form>
+
+				</div>-->
+
+
+				<!-- <div class="card card-sh">-->
+				<div class="p-3">
+					<table class=" table table-striped table-hover">
+						<thead class="table-primary ">
+							<tr>
+								<th scope="col" class="text-center">Sr No</th>
+								<th scope="col" class="text-center">Image</th>
+								<th scope="col" class="text-center">Title</th>
+								<th scope="col" class="text-center">Category</th>
+								<th scope="col" class="text-center">Price</th>
+								<th scope="col" class="text-center">Discount</th>
+								<th scope="col" class="text-center">Discount Price</th>
+								<th scope="col" class="text-center">Status</th>
+								<th scope="col" class="text-center">Stock</th>
+								<th scope="col" class="text-center">Action</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="p,c:${products}">
+								<th scope="row" class="text-center">[[${c.count}]]</th>
+								<td class="text-center"><img th:src="@{'/img/product_img/'+${p.image}}"
+									width="70px" height="70px"></td>
+								<td class="text-center">[[${p.title}]]</td>
+								<td class="text-center">[[${p.category}]]</td>
+								<td class="text-center">[[${p.price}]]</td>
+								<td class="text-center">[[${p.discount}]]</td>
+								<td class="text-center">[[${p.discountPrice}]]</td>
+								<td class="text-center">[[${p.isActive}]]</td>
+								<td class="text-center">[[${p.stock}]]</td>
+								<td class="text-center"><a th:href="@{'/admin/editProduct/'+${p.id}}"
+									class="btn btn-sm btn-primary"><i
+										class="fa-solid fa-pen-to-square"></i> Edit</a> <a
+									th:href="@{'/admin/deleteProduct/'+${p.id}}"
+									class="btn btn-sm btn-danger"><i class="fa-solid fa-trash"></i> 
+										 Delete</a></td>
+							</tr>
+
+						</tbody>
+					</table>
+
+				</div>
+			</div>
+		</div>
+
+	</section>
+</body>
+</html>

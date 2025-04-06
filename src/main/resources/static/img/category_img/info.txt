@@ -1,0 +1,1 @@
+This folder includes the photos that are save by admin in the Category Module.
